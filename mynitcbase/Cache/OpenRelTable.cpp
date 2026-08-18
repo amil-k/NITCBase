@@ -27,7 +27,7 @@ OpenRelTable::OpenRelTable() {
 
   struct RelCacheEntry relCacheEntry;
   RelCacheTable::recordToRelCatEntry(relCatRecord, &relCacheEntry.relCatEntry); /* why we convert it is because the size of both the things are different*/
-  
+
   
   relCacheEntry.recId.block = RELCAT_BLOCK;
   relCacheEntry.recId.slot = RELCAT_SLOTNUM_FOR_RELCAT;
@@ -141,8 +141,9 @@ OpenRelTable::OpenRelTable() {
 
 
 
-//assignment part relational catalog cache
+/* setting up students relation*/
 
+    /* finding the relation catalog slot*/
   HeadInfo relCatHeader;
   relCatBlock.getHeader(&relCatHeader);
   int slot=-1;
@@ -164,12 +165,15 @@ OpenRelTable::OpenRelTable() {
     *(RelCacheTable::relCache[ATTRCAT_RELID+1]) = relCacheEntry;
   }else std::cout<<"\n\n\nRelation NOT FOUND\n\n\n\n";
 
-//attribute catalog cache
+  /* corresponding attr catalog s*/
   head = nullptr;
   prev = nullptr;
   AttrCacheEntry *temp = nullptr;
 
   if(slot!=-1){
+
+
+
     head=(AttrCacheEntry*) malloc(sizeof(AttrCacheEntry));
     temp=head; 
     int numAttrs=RelCacheTable::relCache[ATTRCAT_RELID+1]->relCatEntry.numAttrs; 
@@ -177,6 +181,10 @@ OpenRelTable::OpenRelTable() {
       // iterate through all the attributes of the relation catalog and create a linked
       attrCatBlock.getRecord(attrCatRecord, i); // slots 6-11 are for attribute catalog attributes
       AttrCacheTable::recordToAttrCatEntry(attrCatRecord, &temp->attrCatEntry);  
+
+      //std::cout << "Students cache: "<< temp->attrCatEntry.attrName << std::endl;
+
+
       temp->recId.block=ATTRCAT_BLOCK;
       temp->recId.slot=i;
 
@@ -188,16 +196,6 @@ OpenRelTable::OpenRelTable() {
     } 
     AttrCacheTable::attrCache[ATTRCAT_RELID+1] = head /* head of the linked list */;
   }
-
-
-
-
-
-
-
-
-
-
 
 }
 
@@ -222,4 +220,14 @@ OpenRelTable::~OpenRelTable() {
 }
 
 
+}
+
+
+int OpenRelTable::getRelId(char relName[ATTR_SIZE]) {
+
+  if(strcmp(relName ,RELCAT_RELNAME)==0) return RELCAT_RELID;
+  if(strcmp(relName ,ATTRCAT_RELNAME)==0) return ATTRCAT_RELID;
+  if(strcmp(relName ,"Students")==0) return ATTRCAT_RELID+1;
+
+  return E_RELNOTOPEN;
 }

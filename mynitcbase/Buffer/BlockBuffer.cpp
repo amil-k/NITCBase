@@ -42,8 +42,6 @@ int RecBuffer::getRecord(union Attribute *rec, int slotNum) {
   struct HeadInfo head;
 
   // get the header using this.getHeader() function
-  
-
   unsigned char *bufferPtr;
   int ret = loadBlockAndGetBufferPtr(&bufferPtr);
   if (ret != SUCCESS) {
@@ -90,4 +88,45 @@ int BlockBuffer::loadBlockAndGetBufferPtr(unsigned char **buffPtr) {
   *buffPtr = StaticBuffer::blocks[bufferNum];
 
   return SUCCESS;
+}
+
+/* used to get the slotmap from a record block
+NOTE: this function expects the caller to allocate memory for `*slotMap`
+*/
+int RecBuffer::getSlotMap(unsigned char *slotMap) {
+  // get the starting address of the buffer containing the block using loadBlockAndGetBufferPtr().
+  // get the header of the block using getHeader() function
+  // get a pointer to the beginning of the slotmap in memory by offsetting HEADER_SIZE
+  // copy the values from `slotMapInBuffer` to `slotMap` (size is `slotCount`)
+  
+  unsigned char *bufferPtr;
+  int ret = loadBlockAndGetBufferPtr(&bufferPtr);
+  if (ret != SUCCESS) {
+    return ret;
+  }
+
+  struct HeadInfo head;
+  ret =this->getHeader(&head); 
+  if(ret!=SUCCESS) return ret;
+
+  int slotCount = head.numSlots/* number of slots in block from header */;
+
+  unsigned char *slotMapInBuffer = bufferPtr + HEADER_SIZE;
+  for(int i=0;i<slotCount;i++){
+    slotMap[i] = slotMapInBuffer[i];
+  }
+
+  return SUCCESS;
+}
+int compareAttrs(union Attribute attr1, union Attribute attr2, int attrType) {
+
+    double diff;
+   if(attrType==1)// 1 correspondes to string
+      diff = strcmp(attr1.sVal, attr2.sVal);
+  else
+      diff = attr1.nVal - attr2.nVal;
+
+  if(diff >0) return 1;
+  else if(diff==0) return 0;
+  else return -1; 
 }
