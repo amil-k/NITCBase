@@ -54,15 +54,14 @@ int RecBuffer::getRecord(union Attribute *rec, int slotNum) {
     int slotCount = head.numSlots;
   
   // read the block at this.blockNum into a buffer
-    unsigned char buffer[BLOCK_SIZE];
-    Disk::readBlock(buffer,this->blockNum);
+
 
   /* record at slotNum will be at offset HEADER_SIZE + slotMapSize + (recordSize * slotNum)
      - each record will have size attrCount * ATTR_SIZE
      - slotMap will be of size slotCount
   */
     int recordSize = attrCount * ATTR_SIZE;
-    unsigned char *slotPointer = buffer + HEADER_SIZE + slotCount + (recordSize* slotNum); 
+    unsigned char *slotPointer = bufferPtr + HEADER_SIZE + slotCount + (recordSize* slotNum); 
 
   // load the record into the rec data structure
   memcpy(rec, slotPointer, recordSize);
