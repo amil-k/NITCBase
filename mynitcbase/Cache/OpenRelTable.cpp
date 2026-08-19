@@ -69,11 +69,11 @@ OpenRelTable::OpenRelTable() {
 
   AttrCacheEntry *head = nullptr;
   AttrCacheEntry *prev = nullptr;
-  AttrCacheEntry *entry = (AttrCacheEntry*)malloc(sizeof(AttrCacheEntry));  
+  
   // iterate through all the attributes of the relation catalog and create a linked
   for(int i=0;i< RELCAT_NO_ATTRS;i++){
     attrCatBlock.getRecord(attrCatRecord, i);
-    
+    AttrCacheEntry *entry = (AttrCacheEntry*)malloc(sizeof(AttrCacheEntry));
     AttrCacheTable::recordToAttrCatEntry(attrCatRecord,&entry->attrCatEntry);
   // list of AttrCacheEntry (slots 0 to 5)
 
@@ -106,13 +106,12 @@ OpenRelTable::OpenRelTable() {
   // set the value at AttrCacheTable::attrCache[ATTRCAT_RELID]
   head = nullptr;
   prev = nullptr;
-  // AttrCacheEntry *entry =(AttrCacheEntry*)malloc(sizeof(AttrCacheEntry));
-  
+
     for (int i = 0; i < ATTRCAT_NO_ATTRS; i++) {
 
         int slot = RELCAT_NO_ATTRS + i;
         attrCatBlock.getRecord(attrCatRecord,slot);
-        
+        AttrCacheEntry *entry =(AttrCacheEntry*)malloc(sizeof(AttrCacheEntry));
 
         AttrCacheTable::recordToAttrCatEntry(attrCatRecord,&entry->attrCatEntry);
 
