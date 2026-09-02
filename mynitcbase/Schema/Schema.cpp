@@ -31,3 +31,17 @@ int Schema::closeRel(char relName[ATTR_SIZE]) {
 
   return OpenRelTable::closeRel(relId);
 }
+
+int renameRel(char oldRelName[ATTR_SIZE], char newRelName[ATTR_SIZE]) {
+    // if the oldRelName or newRelName is either Relation Catalog or Attribute Catalog,
+        // return E_NOTPERMITTED
+        // (check if the relation names are either "RELATIONCAT" and "ATTRIBUTECAT".
+        // you may use the following constants: RELCAT_RELNAME and ATTRCAT_RELNAME)
+
+    // if the relation is open
+    //    (check if OpenRelTable::getRelId() returns E_RELNOTOPEN)
+    //    return E_RELOPEN
+
+    // retVal = BlockAccess::renameRelation(oldRelName, newRelName);
+    // return retVal
+}
