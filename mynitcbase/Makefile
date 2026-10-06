@@ -1,13 +1,14 @@
 ifeq ($(mode),debug)
-	CFLAGS := -g
+	CFLAGS := -g -I.
 	BUILD_DIR = ./build/debug
 	TARGET = nitcbase-debug
 else
+	CFLAGS := -I.
 	TARGET = nitcbase
 	BUILD_DIR = ./build
 endif
 
-SUBDIR = FrontendInterface Frontend Algebra Schema BlockAccess BPlusTree Cache Buffer Disk_Class
+SUBDIR = FrontendInterface Frontend Algebra Schema BlockAccess BPlusTree Cache Buffer Disk_Class Logger
 
 HEADERS = $(wildcard define/*.h $(foreach fd, $(SUBDIR), $(fd)/*.h))
 SRCS = $(wildcard main.cpp $(foreach fd, $(SUBDIR), $(fd)/*.cpp))

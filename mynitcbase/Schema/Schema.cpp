@@ -1,6 +1,12 @@
 #include "Schema.h"
 #include <cmath>
 #include <cstring>
+#include <stdio.h>
+#include <cstdio>
+#include "Logger/logger.h"
+
+//create logs
+
 
 int Schema::openRel(char relName[ATTR_SIZE]) {
   int ret = OpenRelTable::openRel(relName);
@@ -30,4 +36,60 @@ int Schema::closeRel(char relName[ATTR_SIZE]) {
   }
 
   return OpenRelTable::closeRel(relId);
+}
+
+int Schema::renameRel(char oldRelName[ATTR_SIZE], char newRelName[ATTR_SIZE]) {
+
+    // if the oldRelName or newRelName is either Relation Catalog or Attribute Catalog,
+        // return E_NOTPERMITTED
+        // (check if the relation names are either "RELATIONCAT" and "ATTRIBUTECAT".
+        // you may use the following constants: RELCAT_RELNAME and ATTRCAT_RELNAME)
+
+    // if the relation is open
+    //    (check if OpenRelTable::getRelId() returns E_RELNOTOPEN)
+    //    return E_RELOPEN
+
+    // retVal = BlockAccess::renameRelation(oldRelName, newRelName);
+    // return retVal
+
+
+  if(strcmp(oldRelName,ATTRCAT_RELNAME)==0 || strcmp(oldRelName,RELCAT_RELNAME)==0) return E_NOTPERMITTED;
+  if(strcmp(newRelName,ATTRCAT_RELNAME)==0 || strcmp(newRelName,RELCAT_RELNAME)==0) return E_NOTPERMITTED;
+
+  if(OpenRelTable::getRelId(oldRelName)!=E_RELNOTOPEN) return E_RELOPEN;
+
+  fprintf(logFile, "Schema Layer: rename rel on < %s > to < %s >\n",oldRelName,newRelName);
+  fprintf(logFile, "Schema layer: CALL Block Access::renameRelation() \n");
+  fflush(logFile);
+
+  int retval = BlockAccess::renameRelation(oldRelName,newRelName);
+
+  return retval; 
+  
+
+}
+
+int Schema::renameAttr(char *relName, char *oldAttrName, char *newAttrName) {
+    // if the relName is either Relation Catalog or Attribute Catalog,
+        // return E_NOTPERMITTED
+        // (check if the relation names are either "RELATIONCAT" and "ATTRIBUTECAT".
+        // you may use the following constants: RELCAT_RELNAME and ATTRCAT_RELNAME)
+
+    // if the relation is open
+        //    (check if OpenRelTable::getRelId() returns E_RELNOTOPEN)
+        //    return E_RELOPEN
+
+    // Call BlockAccess::renameAttribute with appropriate arguments.
+
+    // return the value returned by the above renameAttribute() call
+
+      if(strcmp(relName,ATTRCAT_RELNAME)==0 || strcmp(relName,RELCAT_RELNAME)==0) return E_NOTPERMITTED;
+      if(OpenRelTable::getRelId(relName)!=E_RELNOTOPEN) return E_RELOPEN;
+
+      fprintf(logFile, "Schema Layer: rename Attr on < %s > to < %s > in < %s >\n",oldAttrName,newAttrName,relName);
+      fprintf(logFile, "Schema layer: CALL Block Access::renameAttribute() \n");
+      fflush(logFile);
+
+      int retval = BlockAccess::renameAttribute(relName,oldAttrName,newAttrName);
+      return retval;
 }

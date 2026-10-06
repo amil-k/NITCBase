@@ -1,0 +1,5 @@
+Starting NITCBase
+Schema Layer: rename rel on < LibraryBooks > to < Students >
+Schema layer: CALL Block Access::renameRelation() 
+BlockAccess::renameRelation::LinearSearch() search RELATIONCAT for New Relation Name gave {4,2}
+Closing NITCBase

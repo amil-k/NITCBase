@@ -148,10 +148,10 @@ OpenRelTable::OpenRelTable() {
   //   set relname for RELCAT_RELID and ATTRCAT_RELID
 
   tableMetaInfo[RELCAT_RELID].free =false;
-  strcpy(tableMetaInfo[ATTRCAT_RELID].relName ,ATTRCAT_RELNAME);
+  strcpy(tableMetaInfo[RELCAT_RELID].relName ,RELCAT_RELNAME);
 
   tableMetaInfo[ATTRCAT_RELID].free =false;
-  strcpy(tableMetaInfo[ATTRCAT_RELID].relName ,RELCAT_RELNAME);
+  strcpy(tableMetaInfo[ATTRCAT_RELID].relName ,ATTRCAT_RELNAME);
 
 
 

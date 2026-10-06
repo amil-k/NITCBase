@@ -1,3 +1,4 @@
+#include "Logger/logger.h"
 #include "Buffer/StaticBuffer.h"
 #include "Cache/OpenRelTable.h"
 #include "Disk_Class/Disk.h"
@@ -8,11 +9,19 @@ using namespace std;
 
 
 int main(int argc, char *argv[]) {
-  Disk disk_run;
 
-  StaticBuffer buffer;
-  OpenRelTable cache;
+    initLogger();
 
-  return FrontendInterface::handleFrontend(argc, argv);
+    Disk disk_run;
+    StaticBuffer buffer;
+    OpenRelTable cache;
 
+    int ret = FrontendInterface::handleFrontend(argc, argv);
+
+    fprintf(logFile, "Closing NITCBase\n");
+    fflush(logFile);
+
+    fclose(logFile);
+
+    return ret;
 }

@@ -23,6 +23,9 @@ class StaticBuffer {
   // methods
   static int getFreeBuffer(int blockNum);
   static int getBufferNum(int blockNum);
+  
+  //added
+  static int incrementTimeStamp();
 
  public:
   // methods
