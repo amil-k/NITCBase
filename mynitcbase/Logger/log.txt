@@ -1,5 +1,9 @@
 Starting NITCBase
-Schema Layer: rename rel on < LibraryBooks > to < Students >
-Schema layer: CALL Block Access::renameRelation() 
-BlockAccess::renameRelation::LinearSearch() search RELATIONCAT for New Relation Name gave {4,2}
+StaticBuffer::StaticBuffer()  Copied the BAM into <buffer> from <Disk>
+StaticBuffer::StaticBuffer()  Initialized  metaInfo (free,dirty,timeStamp,blockNum) about all the buffer Indices
+Algebra::insert() : Copied the input record values into an Attribute and call BlockAccess::insert()
+BlockBuffer::setHeader: Updated Header for <Block 9>BlockBuffer::setBlockType: Set Block Type in BAM locally for <Block: 9>BlockBuffer::setHeader: Updated Header for <Block 9>RecBuffer::setSlotMap()  Copied SlotMap back to buffer and set the dirty bit for BlockNo:9
+RecBuffer::setSlotMap()  Copied SlotMap back to buffer and set the dirty bit for BlockNo:9
+BlockBuffer::setHeader: Updated Header for <Block 9>OpenRelTable::closeRel: About to close relation : 2. Moving to free RelCache and AttrCache
+OpenRelTable::closeRel: Closed relation : 2
 Closing NITCBase

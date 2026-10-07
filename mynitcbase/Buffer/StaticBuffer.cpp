@@ -1,10 +1,17 @@
 #include "StaticBuffer.h"
+#include "Logger/logger.h"
 // the declarations for this class can be found at "StaticBuffer.h"
 
 unsigned char StaticBuffer::blocks[BUFFER_CAPACITY][BLOCK_SIZE];
 struct BufferMetaInfo StaticBuffer::metainfo[BUFFER_CAPACITY];
 
+// declare the blockAllocMap array
+unsigned char StaticBuffer::blockAllocMap[DISK_BLOCKS];
+
 StaticBuffer::StaticBuffer() {
+
+  // copy blockAllocMap blocks from disk to buffer (using readblock() of disk)
+  // blocks 0 to 3
 
   // initialise all blocks as free
 
@@ -15,6 +22,19 @@ StaticBuffer::StaticBuffer() {
     //   timestamp = -1
     //   blockNum = -1
   //}
+  int blockAllocMapSlot=0;
+  for(int i=0;i<BLOCK_ALLOCATION_MAP_SIZE;i++){
+    unsigned char blockAllocMapBlock[BLOCK_SIZE];
+    int ret = Disk::readBlock(blockAllocMapBlock,i);
+
+    for(int slot=0;slot<BLOCK_SIZE;slot++){
+      blockAllocMap[blockAllocMapSlot++] = blockAllocMapBlock[slot];
+    }
+  }
+
+  fprintf(logFile, "StaticBuffer::StaticBuffer()  Copied the BAM into <buffer> from <Disk>\n");
+  fflush(logFile);
+
 
 
   for (int bufferIndex =0;bufferIndex<BUFFER_CAPACITY;bufferIndex++ /*bufferIndex = 0 to BUFFER_CAPACITY-1*/) {
@@ -22,23 +42,40 @@ StaticBuffer::StaticBuffer() {
     metainfo[bufferIndex].dirty = false;
     metainfo[bufferIndex].timeStamp = -1;
     metainfo[bufferIndex].blockNum = -1;
-    
   }
 // write back all modified blocks on system exit
+
+  fprintf(logFile, "StaticBuffer::StaticBuffer()  Initialized  metaInfo (free,dirty,timeStamp,blockNum) about all the buffer Indices\n");
+  fflush(logFile);
+  
 }
 
-
 StaticBuffer::~StaticBuffer() {
+
+  // copy blockAllocMap blocks from buffer to disk(using writeblock() of disk)
 
   /*iterate through all the buffer blocks,
     write back blocks with metainfo as free=false,dirty=true
     using Disk::writeBlock()
     */
+
+  for(int i=0, bMapSlot=0;i<4;i++){
+      unsigned char tempBuff[BLOCK_SIZE];
+      for(int slot=0;slot<BLOCK_SIZE;slot++, bMapSlot++)
+          tempBuff[slot]=blockAllocMap[bMapSlot];
+      Disk::writeBlock(tempBuff, i);
+  }
+  fprintf(logFile, "StaticBuffer::~StaticBuffer()  Copied the BAM into <Disk> from <Buffer>\n");
+  fflush(logFile);
+
   for (int bufferIndex =0;bufferIndex<BUFFER_CAPACITY;bufferIndex++ /*bufferIndex = 0 to BUFFER_CAPACITY-1*/) {
     if(metainfo[bufferIndex].free==false && metainfo[bufferIndex].dirty==true){
       Disk::writeBlock(blocks[bufferIndex],metainfo[bufferIndex].blockNum);
     }
   }
+
+
+
   
 
 }

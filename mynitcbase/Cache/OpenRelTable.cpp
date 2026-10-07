@@ -1,3 +1,4 @@
+#include "Logger/logger.h"
 #include "OpenRelTable.h"
 #include <cstring>
 #include <cstdlib>
@@ -425,12 +426,16 @@ int OpenRelTable::closeRel(int relId) {
   // allocated in the OpenRelTable::openRel() function
 
 // freeing relcache
+
+  fprintf(logFile,"OpenRelTable::closeRel: About to close relation : %d. Moving to free RelCache and AttrCache\n",relId);
+  fflush(logFile);
+
   free(RelCacheTable::relCache[relId]);
   RelCacheTable::relCache[relId] = nullptr;
 // freeing attrCache
-  AttrCacheEntry * attrCacheEntry = AttrCacheTable::attrCache[relId];
-  AttrCacheEntry* head = attrCacheEntry;
-  AttrCacheEntry* next = attrCacheEntry->next;
+  AttrCacheEntry *attrCacheEntry = AttrCacheTable::attrCache[relId];
+  AttrCacheEntry *head = attrCacheEntry;
+  AttrCacheEntry *next = attrCacheEntry->next;
   while(next!=NULL){
     attrCacheEntry = next;
     next= next->next;
@@ -445,6 +450,10 @@ int OpenRelTable::closeRel(int relId) {
   // update `tableMetaInfo` to set `relId` as a free slot
   // update `relCache` and `attrCache` to set the entry at `relId` to nullptr
   tableMetaInfo[relId].free=true;
+
+
+  fprintf(logFile,"OpenRelTable::closeRel: Closed relation : %d\n",relId);
+  fflush(logFile);
 
   return SUCCESS;
 }
