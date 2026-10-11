@@ -37,12 +37,15 @@ BlockBuffer::BlockBuffer(char blocktype){
 
 // calls the parent class constructor
 RecBuffer::RecBuffer(int blockNum) : BlockBuffer::BlockBuffer(blockNum) {}
+
 RecBuffer::RecBuffer() : BlockBuffer('R') {}
+
 /*
 Used to get the header of the block into the location pointed to by `head`
 NOTE: this function expects the caller to allocate memory for `head`
 */
 // load the block header into the argument pointer
+
 int BlockBuffer::getHeader(HeadInfo *head) {
   unsigned char *buffer;
   int ret = loadBlockAndGetBufferPtr(&buffer);
@@ -65,6 +68,7 @@ Used to get the record at slot `slotNum` into the array `rec`
 NOTE: this function expects the caller to allocate memory for `rec`
 */
 // load the record at slotNum into the argument pointer
+
 int RecBuffer::getRecord(union Attribute *record, int slotNum) {
   HeadInfo head;
   BlockBuffer::getHeader(&head);
@@ -246,6 +250,7 @@ int BlockBuffer::setHeader(struct HeadInfo *head) {
 
   // return SUCCESS;
 }
+
 /*
 TODO::Sets the type of the block with the input block type. This method sets the
 type in both the header of the block and also in the block allocation map.*/
@@ -349,4 +354,41 @@ int BlockBuffer::getBlockNum() {
   return this->blockNum;
 
   // return corresponding block number.
+}
+
+void BlockBuffer::releaseBlock(){
+
+    // if blockNum is INVALID_BLOCKNUM (-1), or it is invalidated already, do nothing
+
+    // else
+        /* get the buffer number of the buffer assigned to the block
+           using StaticBuffer::getBufferNum().
+           (this function return E_BLOCKNOTINBUFFER if the block is not
+           currently loaded in the buffer)
+            */
+
+        // if the block is present in the buffer, free the buffer
+        // by setting the free flag of its StaticBuffer::tableMetaInfo entry
+        // to true.
+
+        // free the block in disk by setting the data type of the entry
+        // corresponding to the block number in StaticBuffer::blockAllocMap
+        // to UNUSED_BLK.
+
+        // set the object's blockNum to INVALID_BLOCK (-1)
+  
+    int blockNum = this->blockNum;
+    if(blockNum==INVALID_BLOCKNUM || StaticBuffer::blockAllocMap[blockNum]==UNUSED_BLK){
+      return;
+    } 
+    
+    int bufferNum = StaticBuffer::getBufferNum(blockNum);
+    
+    if(bufferNum>=0 && bufferNum<BUFFER_CAPACITY){
+      StaticBuffer::metainfo[bufferNum].free=true;
+    }
+    StaticBuffer::blockAllocMap[blockNum] = UNUSED_BLK;
+    this->blockNum=INVALID_BLOCKNUM;
+
+    return;
 }
