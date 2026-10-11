@@ -1,4 +1,124 @@
 Starting NITCBase
-StaticBuffer::StaticBuffer()  Copied the BAM into <buffer> from <Disk>
-StaticBuffer::StaticBuffer()  Initialized  metaInfo (free,dirty,timeStamp,blockNum) about all the buffer Indices
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd950):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd950):: search index set to (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd8e8):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd8e8):: search index is (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd928):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd928):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd8f0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd8f0):: search index set to (block=4, slot=2), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd950):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd950):: search index set to (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: search index is (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=1, relCatBuf=0xffffc48fd928):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=1, relCatBuf=0xffffc48fd928):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: search index set to (block=5, slot=12), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: search index is (block=5, slot=12), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: search index set to (block=5, slot=13), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: writing the relation catalog entry into the relation cache
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: entry copied and dirty flag set, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: writing the relation catalog entry into the relation cache
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: entry copied and dirty flag set, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: writing the relation catalog entry into the relation cache
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: entry copied and dirty flag set, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: writing the relation catalog entry into the relation cache
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: entry copied and dirty flag set, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: writing the relation catalog entry into the relation cache
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: entry copied and dirty flag set, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: writing the relation catalog entry into the relation cache
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: entry copied and dirty flag set, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd5a0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: writing the relation catalog entry into the relation cache
+RelCacheTable.cpp::RelCacheTable::setRelCatEntry(relId=2, relCatBuf=0xffffc48fd490):: entry copied and dirty flag set, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd950):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd950):: search index set to (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd8e8):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd8e8):: search index is (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd928):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd928):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd8f0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd8f0):: search index set to (block=4, slot=2), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd950):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd950):: search index set to (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: search index is (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=1, relCatBuf=0xffffc48fd928):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=1, relCatBuf=0xffffc48fd928):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: search index set to (block=5, slot=12), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=1, searchIndex=0xffffc48fd8e8):: search index is (block=5, slot=12), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=1, searchIndex=0xffffc48fd8f0):: search index set to (block=5, slot=13), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd900):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd900):: search index set to (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd9f0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd9f0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: search index is (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd8d8):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=2, relCatBuf=0xffffc48fd8d8):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: search index set to (block=6, slot=0), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: search index is (block=6, slot=0), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: search index set to (block=6, slot=1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: search index is (block=6, slot=1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: search index set to (block=6, slot=2), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: search index is (block=6, slot=2), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: search index set to (block=6, slot=3), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: search index is (block=6, slot=3), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: search index set to (block=6, slot=4), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: search index is (block=6, slot=4), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=2, searchIndex=0xffffc48fd8a0):: search index set to (block=6, slot=5), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=2, searchIndex=0xffffc48fd898):: search index is (block=6, slot=5), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd900):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd900):: search index set to (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd9f0):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd9f0):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd898):: search index is (block=-1, slot=-1), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd8d8):: getting the relation catalog entry from the relation cache
+RelCacheTable.cpp::RelCacheTable::getRelCatEntry(relId=0, relCatBuf=0xffffc48fd8d8):: copied the relation catalog entry, returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd8a0):: setting the search index of the relation in the relation cache
+RelCacheTable.cpp::RelCacheTable::setSearchIndex(relId=0, searchIndex=0xffffc48fd8a0):: search index set to (block=4, slot=2), returning SUCCESS
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd898):: getting the search index of the relation from the relation cache
+RelCacheTable.cpp::RelCacheTable::getSearchIndex(relId=0, searchIndex=0xffffc48fd898):: search index is (block=4, slot=2), returning SUCCESS
 Closing NITCBase
