@@ -50,6 +50,7 @@ StaticBuffer::~StaticBuffer() {
     }
   }
 }
+
 int StaticBuffer::getFreeBuffer(int blockNum) {
   // Assigns a buffer to the block and returns the buffer number. If no free
   // buffer block is found, the least recently used (LRU) buffer block is
