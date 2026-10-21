@@ -1,0 +1,2 @@
+Starting NITCBase
+Closing NITCBase
